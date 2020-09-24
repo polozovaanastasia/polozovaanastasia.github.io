@@ -93,28 +93,28 @@ textarea {
 
 /* ==========================================================================
    ========================================================================== */
-body{
+body {
     font: 300 16px 'Open Sans Condensed', serif;
     background-color: #ffffff;
     color: #6a6464;
 }
-.container{
+.container {
     max-width: 1170px;
     padding: 0 20px;
     margin: 0 auto;
 }
-a{
+a {
     text-decoration: none;
     color:#6a6464;
 }
 /* ================================ header ================================ */
-.header-top{
+.header-top {
     padding: 20px 0;
 }
-.header-logo{
+.header-logo {
     float: left;
 }
-.header-top .header-contacts{
+.header-top .header-contacts {
     float: right;
     padding: 45px 0;
     font-size: 24px;
@@ -123,31 +123,31 @@ a{
     cursor: pointer;
 }
 .header-contacts:hover,
-.popup-close:hover{
+.popup-close:hover {
     transform: scale(1.2);
 }
-.header-top span{
+.header-top span {
     float: right;
     padding: 30px 15px;
     font-size: 20px;
 }
 
 /* ============================== header-nav ============================== */
-.responsive-list{
+.responsive-list {
     padding: 0;
     margin: 0;
     text-align: justify;
 }
-.responsive-list li{
+.responsive-list li {
     display: inline;
 }
-.responsive-list li a{
+.responsive-list li a {
     display: inline-block;
     padding: 10px;
     text-transform: lowercase;
     transition: all .2s;
 }
-.responsive-list li a:hover{
+.responsive-list li a:hover {
     background-color: #f3d1ce;
 }
 .responsive-list:after {
@@ -161,60 +161,64 @@ a{
     margin-bottom: 150px;
 }*/
 /* ================================ about ================================= */
-.about{
+.about {
     margin-top: 50px;
 }
 h1,
-h2{
+h2 {
     display: inline-block;
     padding: 0 10px;
     font-size: 1.3em;
     font-weight: 300;
     background-color: #f3d1ce;
 }
-h1{
+h1 {
     margin-bottom: 50px;
 }
-.about li{
+.about li {
     padding-left: 10px;
     margin-bottom: 7px;
 }
 /* ============================= section-works ============================ */
-.works{
+.works {
     margin: 150px 0;
 }
-.works-item{
-    float: left;
-    width: 29%;
-    overflow: hidden;
-    padding: 30px 2%;
-    text-align: center;
+.works-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
 }
-.works-item-preview{
-    display: inline-block;
+.works-item {
+    display: flex;
+    flex-direction: column;
+}
+.works-item-preview {
+    display: flex;
+    align-items: center;
+    height: 120px;
     margin: 0 20px 40px;
     overflow: hidden;
     transition: all .4s;
 }
-.works-item-preview img{
+.works-item-preview img {
         max-width: 100%;
         height: auto;
 }
-.works-item-preview:hover{
+.works-item-preview:hover {
     transform: scale(1.1);
 }
-.works-item-description{
+.works-item-description {
     margin: 0 20px;
     text-align: left;
 }
-.works-item-description i{
+.works-item-description i {
     top: .5em;
     font-size: 10px;
 }
 /* =============================== footer ================================= */
 
 /* ============================= modal window ============================= */
-.popup-wrap{
+.popup-wrap {
     position: fixed;
     top: 0;
     display: none;
@@ -223,51 +227,52 @@ h1{
     overflow: hidden;
     background-color: rgba(255,255,255,.9);
 }
-.popup{
+.popup {
     width: 400px;
     height: 250px;
     padding: 20px;
     margin: 100px auto 0;
     background-color: #ffffff;
 }
-.popup-close{
+.popup-close {
     float: right;
     color: #f3d1ce;
     transition: all .2s;
     cursor: pointer;
 }
-.popup-contacts{
+.popup-contacts {
     padding-top: 20px;
     text-align: center;
 }
-.popup-contacts a{
+.popup-contacts a {
     display: block;
     margin: 25px;
 }
-.popup-contacts a:hover{
+.popup-contacts a:hover {
     color: #000000;
 }
 /* ================================ media ================================= */
-@media(max-width: 650px){
-    .works-item{
-        float: none;
-        width: 100%;
+@media(max-width: 650px) {
+    .works-row {
+        display: block;
+    }
+    .works-item {
         padding: 30px 0;
         border-right: none;
         border-bottom: 1px dashed #6a6464;
     }
-    .works-item:last-child{
+    .works-item:last-child {
         border-bottom: none;
     }
 }
-@media(max-width: 505px){
-    .main-footer .responsive-list li{
+@media(max-width: 505px) {
+    .main-footer .responsive-list li {
         display: block;
         text-align: center;
     }
 }
-@media(max-width: 440px){
-    .popup{
+@media(max-width: 440px) {
+    .popup {
         width: auto;
     }
 }
