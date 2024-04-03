@@ -5,4 +5,4 @@ let passport = {
 let passportNew = {...passport, name: 'Ivan'}
 
 console.log(passport.name);
-console.log(passport2.name);
+console.log(passportNew.name);
