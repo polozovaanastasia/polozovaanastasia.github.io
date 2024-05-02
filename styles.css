@@ -1,27 +1,288 @@
-body {
-    background-color: rgb(0, 0, 0);
-    color: rgb(54, 255, 47);
-    font-family: 'Russo One';
-    font-size: 50px
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background: url('./assets/images/main_bg.png') center/cover;
+    background-attachment: fixed;
+}
+
+.root,
+.set-settings,
+.set-settings__settings,
+.game,
+.result__container,
+.result__content,
+.result__content h2,
+.result-panel,
+.result-panel__catch,
+.result-panel__miss,
+.result__statistic,
+.target {
+    display: flex;
+}
+
+.root,
+.set-settings,
+.game,
+.result__content {
+    flex-direction: column;
+}
+
+.root,
+.result__container,
+.result__content,
+.result__statistic,
+.result-panel__catch,
+.result-panel__miss {
+    align-items: center;
+}
+
+.root,
+.set-settings__settings,
+.result__container,
+.result__content h2 {
+    justify-content: center;
+
+}
+
+.result__content,
+.result__statistic {
+    justify-content: space-around;
+}
+
+body::after,
+.root,
+.set-settings,
+.result__container,
+.game {
+    width: 100%;
+    height: 100%;
+}
+
+button,
+.target,
+.set-settings__select-container,
+.set-settings__checkbox-container,
+.set-settings__select {
+    cursor: pointer;
+}
+
+.set-settings__select-container_disabled,
+.set-settings__select-container_disabled .set-settings__select {
+    cursor: default;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+}
+
+.result__content::before {
+    content: "";
+    position: absolute;
+}
+
+body::after {
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.set-settings__settings {
+    padding: 20px 50px;
+}
+
+.set-settings__toggle-container {
+    padding: 10px 0;
+}
+
+.set-settings__checkbox-container input {
+    opacity: 0;
+}
+
+.set-settings__checkbox-container input:checked+.set-settings__toggle {
+    background-color: #75fa4c;
+}
+
+.set-settings__checkbox-container input:checked+.set-settings__toggle:before {
+    transform: translateX(13px);
+    background: url(./assets/images/sound-on_icon.png) center no-repeat white;
+}
+
+.set-settings__toggle-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+.set-settings__toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212720;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.set-settings__toggle:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    padding: 2px;
+    left: 4px;
+    bottom: 2px;
+    background: url(./assets/images/sound-off_icon.png) center no-repeat white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.set-settings__select-container,
+.set-settings__checkbox-container {
+    margin-right: 20px;
+}
+
+.set-settings__select-container h4,
+.set-settings__checkbox-container h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #b6fde5;
+}
+
+.set-settings__select-container_disabled h4 {
+    color: #817f7f;
+}
+
+.set-settings__select {
+    width: 170px;
+    padding: 15px;
+    border: 2px solid #191a1c;
+    border-radius: 5px;
+    background-color: #191a1c;
+    color: #ffffff;
+}
+
+.set-settings button {
+    margin: auto;
+}
+
+.game-grid {
+    margin: 0 auto;
+}
+
+.result-panel {
+    justify-content: space-between;
+    min-width: 300px;
+    padding: 15px 36px;
+    margin: 45px auto 20px;
+    margin-bottom: 60px;
+    border: 2px solid #4c5e50;
+    border-radius: 25px;
+    background-color: rgba(57, 61, 55, 0.4);
+    color: #fff;
+}
+
+.result-panel__catch {
+    margin-right: 50px;
+}
+
+.count {
+    margin-left: 20px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.game-grid {
+    border-spacing: 10px;
+}
+
+.game-grid td {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #999b95;
+    border-radius: 5px;
+    background-color: rgba(110, 117, 102, 0.3);
+}
+
+.target {
+    height: 100%;
+}
+
+.target img {
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+}
 
 button {
-    background-color: rgb(54, 255, 47);
-    color: black;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Russo One';
+    padding: 13px 35px;
+    text-transform: uppercase;
+    border: 2px solid #75f94c;
+    border-radius: 13px 3px 13px 3px;
+    background-color: #58bf39;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
 }
 
-
-.clockCase {
-    display: flex;
-    justify-content: center;
+.result__content {
+    position: relative;
+    width: 281px;
+    height: 410px;
+    padding: 20px 0;
+    background: no-repeat url(/assets/images/win-or-lose-panel_bg.svg);
+    color: #fff;
+    box-sizing: border-box;
 }
 
+.result__content::before {
+    top: -95px;
+    left: 66px;
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    border: 3px solid #999b95;
+    background: no-repeat center rgba(110, 117, 102, 0.3);
+}
 
-.buttonCase {
-    display: flex;
-    justify-content: center;
+.win.result__content::before {
+    /* background-image: url("./assets/win_icon.png"); */
+    background-image: url("./assets/images/win_icon.png");
+}
+
+.lose.result__content::before {
+    background-image: url("./assets/images/lose_icon.png");
+}
+
+.result__content h1 {
+    margin: 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.result__content h2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.result__statistic {
+    width: 100%;
+    font-size: 18px;
+}
+
+.result__statistic span:last-child {
+    font-size: 24px;
+    font-weight: 500;
 }

@@ -1,26 +1,37 @@
-let timerId;
+import { addEventListener, movePlayer, MOVING_DIRECTIONS } from "./data.js";
+import { Game } from "./components/Game/game.component.js";
 
+const rerender = () => {
+    const rootElement = document.getElementById("root");
+    rootElement.innerHTML = "";
 
-const startButton = document.getElementById('start');
-startButton.addEventListener('click', function () {
-    if(!timerId) {
-        timerId = setInterval(updateClock, 1000);
+    const gameElement = Game();
+    rootElement.append(gameElement);
+};
+
+document.addEventListener("keyup", (event) => {
+    switch (event.code) {
+        case "ArrowUp": {
+            movePlayer(MOVING_DIRECTIONS.UP);
+            break;
+        }
+        case "ArrowDown": {
+            movePlayer(MOVING_DIRECTIONS.DOWN);
+            break;
+        }
+        case "ArrowLeft": {
+            movePlayer(MOVING_DIRECTIONS.LEFT);
+            break;
+        }
+        case "ArrowRight": {
+            movePlayer(MOVING_DIRECTIONS.RIGHT);
+            break;
+        }
+        default:
+            throw new Error("No supported key");
     }
 });
 
+rerender();
 
-const stopButton =  document.getElementById('stop');
-stopButton.addEventListener('click', function () {
-    clearInterval(timerId);
-    timerId = undefined;
-});
-
-
-function updateClock() {
-    const clock = document.getElementById('clock');
-    const now = new Date();
-    const hours = now.getHours()
-    const minutes = now.getMinutes()
-    const seconds = now.getSeconds()
-    clock.textContent = hours + ':' + minutes + ':' + seconds;
-}
+addEventListener(rerender); // addEventListener - observable (наблюдаемый), subjeсt (субъект), издатель   rerender - observer
